@@ -1,0 +1,55 @@
+@import 'variables.scss';
+
+.about-us-title {
+  margin-top: 80px;
+  margin-bottom: 20px;
+}
+
+.about-us-desc {
+  display: flex;
+}
+
+
+.about-us-title {
+  @include h1();
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: $Blue;
+}
+
+.about-us-text {
+  @include text;
+}
+
+/*offers*/
+
+.we-offer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.offer-element {
+  max-width: 25%;
+
+  p {
+    @include text;
+    text-align: center;
+  }
+
+  h5 {
+    margin: 10px 0;
+    text-transform: uppercase;
+    @include h5;
+    text-align: center;
+    color: #1E90FF;
+  }
+}
+
+.offer-icon-container {
+  width: 50px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50px;
+  background-color: #00BFFF;
+}

@@ -1,0 +1,130 @@
+@import 'default_styles.scss';
+@import 'variables.scss';
+
+.product-img-container {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(rgb(0, 0, 205) 10px, #191970 220px);
+}
+
+.products {
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+
+  position: relative;
+  padding: 0px 9.375%;
+  margin-top: 40px;
+  background-color: #191970;
+
+  img {
+    max-width: 350px;
+    max-height: 250px;
+  }
+}
+
+.about-product {
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 35%;
+  background: radial-gradient(rgb(0, 0, 205) 10px, #191970 220px);
+
+}
+
+.product-desc {
+  @include text-2;
+  color: $White;
+  border-bottom: #0000CD 2px dashed;
+  margin: 20px 0;
+}
+
+.product-element {
+  display: flex;
+  justify-content: space-around;
+}
+
+.product-name {
+  @include h3();
+  color: $White;
+  border-bottom: #FFF 2px dashed;
+}
+
+.product-features {
+
+  margin-top: 10px;
+
+  li {
+    list-style: inside;
+    @include text-2;
+    color: $White
+  }
+}
+
+.products-title {
+  text-transform: uppercase;
+  @include h1;
+  color: $White;
+  padding: 40px 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*hexagons*/
+
+.hexagon-01 {
+  @include hexagon-small;
+  top: 15%;
+  left: 4%;
+}
+
+.hexagon-02 {
+  @include hexagon-medium;
+  top: 10%;
+  left: -1%;
+}
+
+.hexagon-03 {
+  @include hexagon-big;
+  top: 10%;
+  left: 50%;
+}
+
+.hexagon-04 {
+  @include hexagon-small;
+  top: 50%;
+  left: 12%;
+}
+
+.hexagon-05 {
+  @include hexagon-small;
+  top: 50%;
+  left: 80%;
+}
+
+.hexagon-06 {
+  @include hexagon-big;
+  top: 45%;
+  left: 85%;
+}
+
+.hexagon-07 {
+  @include hexagon-small;
+  top: 95%;
+  left: 80%;
+}
+
+.hexagon-08 {
+  @include hexagon-big;
+  top: 85%;
+  left: 5%;
+}
+
+.hexagon-09 {
+  @include hexagon-medium;
+  top: 85%;
+  left: 85%;
+}

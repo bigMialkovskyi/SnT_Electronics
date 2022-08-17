@@ -1,0 +1,46 @@
+@import 'default_styles.scss';
+@import 'variables.scss';
+
+.contacts-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  p {
+    @include text;
+  }
+}
+
+.contacts-title {
+  @include h1;
+  color: $Blue;
+  margin: 40px 0;
+}
+
+.social, .contacts-list {
+  li {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+  }
+
+  img {
+    margin: 10px;
+    height: 24px;
+    width: 24px;
+  }
+
+  a {
+    color: black;
+  }
+}
+
+.icon-container {
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  background-color: #00BFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

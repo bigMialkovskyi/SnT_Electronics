@@ -1,0 +1,25 @@
+@import 'default_styles.scss';
+@import 'variables.scss';
+
+footer {
+  background-color: $Blue;
+  height: 100px;
+}
+
+.logo-img {
+  width: 55px;
+  height: 55px;
+  border-radius:  10px
+}
+
+.copyright {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    margin: 10px;
+  }
+}
