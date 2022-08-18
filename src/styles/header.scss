@@ -9,20 +9,22 @@
   .logo {
     background-color: #00BFFF;
     height: 60px;
-    // margin-top: auto;
     border-radius: 10px;
   }
 
   .logo-img {
     width: 55px;
     height: 55px;
-    border-radius:  10px
+    border-radius: 10px
   }
 
   .logo-text {
-    @include h3();
-    // color: #50ABD9;
+    // @include h3();
     color: $White;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 120%;
   }
 
   .shop-interaction {
