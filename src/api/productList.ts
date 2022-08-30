@@ -1,6 +1,6 @@
-[
+export default [
   {
-    "description": "[MOCK] Short Product Description1",
+    "description": "<h1>[MOCK] Short Product Description1</h1>",
     "id": "7567ec4b-b10c-48c5-9345-fc73c48a80aa",
     "title": "[MOCK] ProductOne"
   },

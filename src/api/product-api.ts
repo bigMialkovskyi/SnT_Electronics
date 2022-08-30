@@ -3,8 +3,8 @@ import axios from 'axios';
 import { API_PATHS } from '@/constants/api-paths';
 import { Product } from '@/models/product';
 
-// import productList from './productList.json';
-const  productList = require ('./productList.json');
+import productList from './productList';
+// const  productList = require ('./productList.json');
 
 const fetchAvailableProducts = async (): Promise<Product[]> => {
 	return axios
@@ -28,7 +28,10 @@ const fetchProducts = async (): Promise<Product[]> => {
 		});
 };
 
-export const productApi = {
+export { productList }
+
+export default {
 	fetchAvailableProducts,
 	fetchProducts,
+	productList
 };

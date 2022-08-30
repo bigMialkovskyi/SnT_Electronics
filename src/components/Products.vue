@@ -1,5 +1,5 @@
 <template>
-  <section class="our-products">
+  <section class="our-products" v-if="products">
     <div class="products">
       <h1 class="products-title">Замовлення наших клієнтів</h1>
 
@@ -144,16 +144,13 @@
           :key="product.id"
         >
           <div class="product-img-container">
-            <img
-              src="../assets/img/product_02.png"
-              alt="product"
-            />
+            <img src="../assets/img/product_02.png" alt="product" />
           </div>
 
           <div class="about-product">
             <a href="#" class="product-name">{{ product.title }}</a>
-            <p class="product-desc">
-              {{ product.description }}
+            <p class="product-desc" v-html="product.description">
+              <!-- {{ product.description }} -->
             </p>
           </div>
         </li>
@@ -168,8 +165,9 @@ import Hexagon from "@/components/Hexagon.vue";
 
 // const  productList = require ('./productList.json');
 
-import { Product } from "@/models/product";
-import { productApi } from "@/api/product-api";
+// import { Product } from "@/models/product";
+// import { productApi } from "../api/product-api";
+import { productList } from "@/api/product-api";
 
 export default {
   name: "Products",
@@ -179,6 +177,13 @@ export default {
   props: {
     msg: String,
   },
+
+  data: function () {
+    return {
+      products: null,
+    };
+  },
+
   // data: function () {
   //   return {
   //     products: [
@@ -242,21 +247,26 @@ export default {
   //   };
   // },
 
-  created() {
-    this.fetchProducts();
+  created: async function () {
+    this.products = await this.fetchProducts();
   },
   methods: {
     fetchProducts() {
       this.isFetching = true;
 
-      productApi
-        .fetchAvailableProducts()
-        .then((products) => {
-          this.products = products;
-        })
-        .finally(() => {
-          this.isFetching = false;
-        });
+      // productApi
+      //   .fetchAvailableProducts()
+      //   .then((products) => {
+      //     this.products = products;
+      //   })
+      //   .finally(() => {
+      //     this.isFetching = false;
+      //   });
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(productList);
+        }, 200);
+      });
     },
   },
 };
