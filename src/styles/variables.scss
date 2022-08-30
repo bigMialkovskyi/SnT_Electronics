@@ -100,11 +100,12 @@ body {
   background-color: rgb(240, 248, 255)
 }
 
-@mixin hexagon-small {
+.hexagon-small {
   width: 90px;
   height: 50px;
   background: rgba(240, 248, 255, .3);
   position: absolute;
+  z-index: 0;
 
   &::before {
     content: '';
@@ -125,11 +126,12 @@ body {
   }
 }
 
-@mixin hexagon-medium {
+.hexagon-medium {
   width: 90*1.5px;
   height: 50*1.5px;
   background: rgba(240, 248, 255, .3);
   position: absolute;
+  z-index: 0;
 
   &::before {
     content: '';
@@ -150,11 +152,12 @@ body {
   }
 }
 
-@mixin hexagon-big {
+.hexagon-big {
   width: 90*2px;
   height: 50*2px;
   background: rgba(240, 248, 255, .3);
   position: absolute;
+  z-index: 0;
 
   &::before {
     content: '';

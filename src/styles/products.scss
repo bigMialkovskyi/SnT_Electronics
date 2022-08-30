@@ -12,9 +12,9 @@
 
 .products {
 
-display: flex;
-flex-direction: column;
-justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   position: relative;
   padding: 0px 9.375%;
@@ -22,6 +22,8 @@ justify-content: center;
   background-color: #191970;
 
   img {
+    position: relative;
+    z-index: 1;
     max-width: 350px;
     max-height: 250px;
   }
@@ -71,60 +73,4 @@ justify-content: center;
   padding: 40px 0;
   margin-left: auto;
   margin-right: auto;
-}
-
-/*hexagons*/
-
-.hexagon-01 {
-  @include hexagon-small;
-  top: 15%;
-  left: 4%;
-}
-
-.hexagon-02 {
-  @include hexagon-medium;
-  top: 10%;
-  left: -1%;
-}
-
-.hexagon-03 {
-  @include hexagon-big;
-  top: 10%;
-  left: 50%;
-}
-
-.hexagon-04 {
-  @include hexagon-small;
-  top: 50%;
-  left: 12%;
-}
-
-.hexagon-05 {
-  @include hexagon-small;
-  top: 50%;
-  left: 80%;
-}
-
-.hexagon-06 {
-  @include hexagon-big;
-  top: 45%;
-  left: 85%;
-}
-
-.hexagon-07 {
-  @include hexagon-small;
-  top: 95%;
-  left: 80%;
-}
-
-.hexagon-08 {
-  @include hexagon-big;
-  top: 85%;
-  left: 5%;
-}
-
-.hexagon-09 {
-  @include hexagon-medium;
-  top: 85%;
-  left: 85%;
 }
