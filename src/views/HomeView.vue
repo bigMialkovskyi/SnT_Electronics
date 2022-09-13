@@ -1,9 +1,9 @@
 <template>
   <div class="home">
-    <Banner />
+    <!-- <Banner />
     <GeneralInfo />
     <Products />
-    <Contacts />
+    <Contacts /> -->
   </div>
 </template>
 

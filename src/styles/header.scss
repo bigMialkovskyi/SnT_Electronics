@@ -2,9 +2,9 @@
 @import 'variables.scss';
 
 .header {
-  background-color: rgb(240, 248, 255);
+  // background-color: rgb(240, 248, 255);
   height: 80px;
-  @include flex();
+  // @include flex();
 
   .logo {
     background-color: #00BFFF;
@@ -19,7 +19,6 @@
   }
 
   .logo-text {
-    // @include h3();
     color: $White;
     font-style: normal;
     font-weight: 500;
@@ -283,5 +282,21 @@
 
   .submenu::-webkit-scrollbar-thumb {
     background-color: darkgrey;
+  }
+}
+
+/*responcive*/
+
+@media screen and (max-width: 991px) {
+  .header {
+    ul {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .logo-text {
+    display: none;
   }
 }
