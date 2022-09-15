@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <!-- <Banner />
-    <GeneralInfo />
+    <Banner />
+    <!-- <GeneralInfo />
     <Products />
     <Contacts /> -->
   </div>

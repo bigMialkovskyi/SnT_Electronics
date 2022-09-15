@@ -3,7 +3,7 @@
     <div class="container">
       <div class="copyright">
         <img class="logo-img" src="../assets/img/logo.png" alt="logo" />
-        <p>© COPYRIGHT 2022</p>
+        <p>© COPYRIGHT 2022 (SnT Electronics)</p>
       </div>
     </div>
   </footer>
@@ -12,9 +12,6 @@
 <script>
 export default {
   name: "Footer",
-  props: {
-    msg: String,
-  },
 };
 </script>
 

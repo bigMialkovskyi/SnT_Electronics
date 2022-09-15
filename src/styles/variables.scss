@@ -181,6 +181,12 @@ footer {
 
 /*responsive*/
 
+@media screen and (min-width: 1440px) {
+  .container {
+    width: 1440px;
+  }
+}
+
 @media screen and (max-width: 1439px) {
   .container {
     width: 1250px;
@@ -208,12 +214,12 @@ footer {
 @media screen and (max-width: 767px) {
   .container {
     width: 540px;
-    // width: 100%;
   }
 }
 
 @media screen and (max-width: 575px) {
   .container {
     width: 100%;
+    padding: 0 5%;
   }
 }
