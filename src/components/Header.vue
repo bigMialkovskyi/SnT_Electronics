@@ -1,14 +1,18 @@
 <template>
-  <header class="header" v-class="{ active: isActive }">
+  <header class="header">
     <div class="container">
       <div class="logo">
         <img class="logo-img" src="../assets/img/logo.png" alt="logo" />
         <p class="logo-text">SnT<span> Electronics</span></p>
       </div>
-      <a v-on:click="myFilter" class="menu-hamburger" href="#">
+      <a
+        @click="showMobileMenu = !showMobileMenu"
+        class="menu-hamburger"
+        href="#"
+      >
         <img src="../assets/img/menu-hambuger.svg" alt="menu-hamburger" />
       </a>
-      <ul class="header-menu">
+      <ul class="header-menu" :class="{ active: showMobileMenu }">
         <li class="down">
           <a href="#">Наша продукція</a>
           <ul class="submenu">
@@ -59,18 +63,10 @@ export default {
   props: {
     msg: String,
   },
-  // data: function () {
-  //   return { showMobileMenu: false };
-  // },
-  data: {
-    isActive: false,
-  },
-
-  methods: {
-    myFilter: function () {
-      this.isActive = !this.isActive;
-      // some code to filter users
-    },
+  data: function () {
+    return {
+      showMobileMenu: false,
+    };
   },
 };
 </script>
@@ -81,7 +77,6 @@ export default {
 @import "../styles/menu-hamburger.scss";
 
 .active {
-  background-color: green;
-  color: green;
+  display: block;
 }
 </style>
