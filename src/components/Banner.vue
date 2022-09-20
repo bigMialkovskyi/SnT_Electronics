@@ -2,8 +2,8 @@
  <section class="banner">
     <div class="container">
       <div class="banner-content">
-        <h1 class="slogan">slogan</h1>
-        <h2 class="slogan-desc">a very long and cool description of our slogan</h2>
+        <h1 class="slogan">Електроніка на замовлення</h1>
+        <h2 class="slogan-desc">Ваші бажання - наші турботи</h2>
         <a href="#">Зв'яжись з нами</a>
       </div>
     </div>
