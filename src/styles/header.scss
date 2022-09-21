@@ -216,6 +216,14 @@
 
 /*responcive*/
 
+@media screen and (min-width: 1440px) {
+
+  .header {
+    padding: 0.5% 5%;
+  }
+
+}
+
 @media screen and (max-width: 575px) {
   .logo-text {
     display: none;

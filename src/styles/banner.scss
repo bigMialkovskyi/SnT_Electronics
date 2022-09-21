@@ -1,12 +1,11 @@
 @import 'variables.scss';
 
 .banner {
-  background: url("../assets/img/pcb-1.jpg")no-repeat center;
-  // background: url("../assets/img/banner-bg-02.jpg")no-repeat center;
+  // background: url("../assets/img/pcb-1.jpg")no-repeat center;
+  background: url("../assets/img/banner-bg-02.jpg")no-repeat center;
   // background: url("../assets/img/banner-bg-01.jpg")no-repeat center;
   // background: url("../assets/img/banner-bg-00.jpg")no-repeat center;
   background-size: 100% 100%;
-  // opacity: 0.5;
   // background-size: 1440px 600px;
   // width: 100%;
   // height: 620px;
@@ -54,6 +53,11 @@
 }
 
 @media screen and (max-width: 767px) {
+
+  .banner-content {
+    padding-bottom: 5%;
+  }
+
   .slogan {
     @include h3;
   }
@@ -63,3 +67,37 @@
     font-weight: normal;
   }
 }
+
+@media screen and (max-width: 575px) {
+
+  .banner-content {
+    padding-bottom: 8%;
+    width: 80%;
+
+    a {
+      padding: 6px 20px;
+      border: 1px solid $Blue;
+    }
+  }
+
+  .slogan {
+    @include h4;
+  }
+
+  .slogan-desc {
+    @include h5;
+    font-weight: normal;
+  }
+
+}
+
+
+// @media screen and (min-width: 320px) {
+
+//   .banner-content {
+//     a {
+//       padding: 6px 20px;
+//     }
+//   }
+
+// }
