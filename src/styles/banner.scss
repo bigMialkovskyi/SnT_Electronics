@@ -77,6 +77,10 @@
     a {
       padding: 6px 20px;
       border: 1px solid $Blue;
+
+      &:hover {
+        border: 1px solid $White;
+      }
     }
   }
 
@@ -88,16 +92,4 @@
     @include h5;
     font-weight: normal;
   }
-
 }
-
-
-// @media screen and (min-width: 320px) {
-
-//   .banner-content {
-//     a {
-//       padding: 6px 20px;
-//     }
-//   }
-
-// }

@@ -6,9 +6,15 @@
 }
 
 .about-us-desc {
-  display: flex;
-}
+  // display: flex;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-content: space-between;
 
+  img {
+    width: 100%;
+  }
+}
 
 .about-us-title {
   @include h1();
@@ -52,4 +58,12 @@
   margin-right: auto;
   border-radius: 50px;
   background-color: #00BFFF;
+}
+
+/*responcive*/
+
+@media screen and (max-width: 767px) {
+  .about-us-title {
+    font-size: 40px; 
+  }
 }
