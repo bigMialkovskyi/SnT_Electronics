@@ -64,6 +64,34 @@
 
 @media screen and (max-width: 767px) {
   .about-us-title {
-    font-size: 40px; 
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+
+  .about-us-title {
+    font-size: 32px;
+    letter-spacing: normal;
+  }
+
+  .about-us-desc {
+    // display: flex;
+    display: grid;
+    grid-template-columns: 100%;
+
+    img {
+      grid-row-start: 1;
+      margin-bottom: 15px;
+    }
+  }
+
+  .we-offer {
+    display: block;
+
+    li {
+      min-width: 100%;
+      margin-top: 15px;
+    }
   }
 }
