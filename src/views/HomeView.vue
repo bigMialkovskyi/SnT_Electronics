@@ -3,7 +3,7 @@
     <Banner />
     <GeneralInfo />
     <Products />
-    <!-- <Contacts /> -->
+    <Contacts />
   </div>
 </template>
 

@@ -4,7 +4,6 @@
 .contacts-info {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 
   p {
     @include text;
@@ -43,4 +42,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/*responcive*/
+
+@media screen and (max-width: 575px) {
+  .contacts-title {
+    // @include h2;
+    font-size: 30px;
+  }
 }
