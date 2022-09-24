@@ -1,5 +1,9 @@
 @import 'variables.scss';
 
+.general-info {
+  margin-bottom: 80px;
+}
+
 .about-us-title {
   margin-top: 80px;
   margin-bottom: 20px;
@@ -8,7 +12,7 @@
 .about-us-desc {
   // display: flex;
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 45% 45%;
   justify-content: space-between;
 
   img {

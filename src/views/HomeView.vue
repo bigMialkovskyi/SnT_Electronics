@@ -2,8 +2,8 @@
   <div class="home">
     <Banner />
     <GeneralInfo />
-    <!-- <Products />
-    <Contacts /> -->
+    <Products />
+    <!-- <Contacts /> -->
   </div>
 </template>
 

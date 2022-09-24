@@ -222,4 +222,42 @@ footer {
     width: 100%;
     // padding: 0 5%;
   }
+
+  .hexagon-medium {
+    width: 90*0.75px;
+    height: 50*0.75px;
+
+    &::before {
+      top: -25*0.75px;
+      border-left: 45*0.75px solid transparent;
+      border-right: 45*0.75px solid transparent;
+      border-bottom: 25*0.75px solid rgba(240, 248, 255, .3);
+    }
+
+    &::after {
+      bottom: -25*0.75px;
+      border-left: 45*0.75px solid transparent;
+      border-right: 45*0.75px solid transparent;
+      border-top: 25*0.75px solid rgba(240, 248, 255, .3);
+    }
+  }
+
+  .hexagon-big {
+    width: 90*0.5px;
+    height: 50*0.5px;
+
+    &::before {
+      top: -25*0.5px;
+      border-left: 45*0.5px solid transparent;
+      border-right: 45*0.5px solid transparent;
+      border-bottom: 25*0.5px solid rgba(240, 248, 255, .3);
+    }
+
+    &::after {
+      bottom: -25*0.5px;
+      border-left: 45*0.5px solid transparent;
+      border-right: 45*0.5px solid transparent;
+      border-top: 25*0.5px solid rgba(240, 248, 255, .3);
+    }
+  }
 }
