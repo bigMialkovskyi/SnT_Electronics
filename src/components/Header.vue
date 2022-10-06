@@ -34,7 +34,7 @@
             </li>
           </ul>
         </li>
-        <li><a href="general-information">Про нас</a></li>
+        <li><a href="#">Про нас</a></li>
         <li><a href="#">Контакти </a></li>
       </ul>
       <ul class="tel header-menu">

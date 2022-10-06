@@ -8,8 +8,8 @@ import productList from './productList';
 
 const fetchAvailableProducts = async (): Promise<Product[]> => {
 	return axios
-		.get(`${API_PATHS.bff}/product/available/`)
-		.then(res => res.data)
+		.get(`${API_PATHS.bff}/products/get/all`)
+		.then(res => res.data.products)
 		.catch(e => {
 			console.error(e);
 			// << !!! mocks if any error !!!
@@ -19,8 +19,8 @@ const fetchAvailableProducts = async (): Promise<Product[]> => {
 
 const fetchProducts = async (): Promise<Product[]> => {
 	return axios
-		.get(`${API_PATHS.bff}/product`)
-		.then(res => res.data)
+		.get(`${API_PATHS.bff}/products/get/all`)
+		.then(res => res.data.products)
 		.catch(e => {
 			console.error(e);
 			// << !!! mocks if any error !!!
@@ -28,9 +28,15 @@ const fetchProducts = async (): Promise<Product[]> => {
 		});
 };
 
-export { productList }
+// export { productList }
 
-export default {
+// export default {
+// 	fetchAvailableProducts,
+// 	fetchProducts,
+// 	productList
+// };
+
+export const productApi = {
 	fetchAvailableProducts,
 	fetchProducts,
 	productList

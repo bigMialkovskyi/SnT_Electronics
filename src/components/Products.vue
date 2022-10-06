@@ -33,11 +33,9 @@
 <script lang="ts">
 import Hexagon from "@/components/Hexagon.vue";
 
-// const  productList = require ('./productList.json');
 
-// import { Product } from "@/models/product";
-// import { productApi } from "../api/product-api";
-import { productList } from "@/api/product-api";
+import { Product } from "@/models/product";
+import { productApi } from "@/api/product-api";
 
 export default {
   name: "Products",
@@ -50,28 +48,17 @@ export default {
 
   data: function () {
     return {
-      products: null,
+      products: [] as Product[],
+      error: null,
     };
   },
   created: async function () {
-    this.products = await this.fetchProducts();
+    this.fetchProducts();
   },
   methods: {
     fetchProducts() {
-      this.isFetching = true;
-
-      // productApi
-      //   .fetchAvailableProducts()
-      //   .then((products) => {
-      //     this.products = products;
-      //   })
-      //   .finally(() => {
-      //     this.isFetching = false;
-      //   });
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve(productList);
-        }, 200);
+      productApi.fetchAvailableProducts().then((products) => {
+        this.products = products;
       });
     },
   },
