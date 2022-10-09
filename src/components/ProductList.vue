@@ -1,24 +1,30 @@
 <template>
-  <ul class="product-list">
-    <li class="product-element" v-for="product in products" :key="product.id">
-      <div
-        class="product-img-container"
-        v-if="product.product_type == render_product_type"
-      >
-        <img :src="require(`../assets/img/${product.img_src}`)" alt="product" />
-      </div>
+  <div class="group-type-box">
+    <a class="group-type-title unselectable" v-on:click="showProduct = !showProduct">{{group_type_title}}</a>
+    <ul class="product-list" v-if=showProduct>
+      <li class="product-element" v-for="product in products" :key="product.id">
+        <div
+          class="product-img-container"
+          v-if="product.product_type == render_product_type"
+        >
+          <img
+            :src="require(`../assets/img/${product.img_src}`)"
+            alt="product"
+          />
+        </div>
 
-      <div
-        class="about-product"
-        v-if="product.product_type == render_product_type"
-      >
-        <a href="#" class="product-name">{{ product.title }}</a>
-        <p class="product-desc">
-          {{ product.description }}
-        </p>
-      </div>
-    </li>
-  </ul>
+        <div
+          class="about-product"
+          v-if="product.product_type == render_product_type"
+        >
+          <a href="#" class="product-name">{{ product.title }}</a>
+          <p class="product-desc">
+            {{ product.description }}
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script lang="ts">
@@ -30,12 +36,14 @@ export default {
 
   props: {
     render_product_type: String,
+    group_type_title: String,
   },
 
   data: function () {
     return {
       products: [] as Product[],
       error: null,
+      showProduct: true,
     };
   },
   created: async function () {

@@ -8,19 +8,23 @@
   padding: 0;
 }
 
-.for-farmers {
-  background-color: green;
+.product-type-container {
+  margin-top: -7px;
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
   padding: 0px 9.375%;
 }
 
+.for-farmers {
+  background-color: green;
+}
+
 .measuring-devices {
-  margin-top: -7px;
   background-color: grey;
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
-  padding: 0px 9.375%;
+}
+
+.other {
+  background-color: blue;
 }
 
 .product-img-container {
@@ -37,11 +41,11 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  margin-top: 40px;
+  // margin-top: 40px;
 
   img {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     max-width: 350px;
     max-height: 250px;
   }
@@ -62,7 +66,7 @@
 
 .product-element {
   display: flex;
-  justify-content: space-between
+  justify-content: space-between;
 }
 
 .product-name {
@@ -89,6 +93,18 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+}
+
+.group-type-title {
+  text-transform: uppercase;
+  @include h2;
+  color: $White;
+  position: relative;
+  z-index: 1;
+}
+
+.group-type-box {
+  padding: 40px 0;
 }
 
 /*responcive*/
