@@ -1,7 +1,7 @@
 <template>
   <section class="our-products">
     <div class="products">
-      <h1 class="products-title">Замовлення наших клієнтів</h1>
+      <h1 class="products-title">Замовлення наших клієнтів</h1> 
       <div class="product-type-container for-farmers">
         <ProductList
           render_product_type="for_farmers"
@@ -10,7 +10,7 @@
       </div>
       <div class="product-type-container measuring-devices">
         <ProductList
-          render_product_type="measuring_devices"
+          render_product_type="measuring_device"
           group_type_title="Вимірювальні прилади"
         />
       </div>
