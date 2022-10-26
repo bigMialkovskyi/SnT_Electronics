@@ -240,6 +240,8 @@
 
     .logo {
       margin-right: auto;
+      justify-content: start;
+      width: 200px;
     }
 
     .container {
@@ -270,4 +272,18 @@
       }
     }
   }
+
+  .admin-page-icon-box {
+    grid-column-start: 3;
+    grid-row-start: 1;
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+
+  .logo {
+    width: 55px;
+  }
+
 }

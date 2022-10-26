@@ -24,7 +24,7 @@
           v-if="product.product_type == render_product_type"
         >
           <img
-            :src="require(`../assets/img/${product.img_src}`)"
+            :src="`data:image/png;base64, ${product.img}`"
             alt="product"
           />
         </div>
@@ -69,6 +69,7 @@ export default {
     fetchProducts() {
       productApi.fetchAvailableProducts().then((products) => {
         this.products = products;
+        console.log(products);
       });
     },
   },

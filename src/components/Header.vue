@@ -1,10 +1,12 @@
 <template>
   <header class="header">
     <div class="container">
-      <div class="logo">
-        <img class="logo-img" src="../assets/img/logo.png" alt="logo" />
-        <p class="logo-text">SnT<span> Electronics</span></p>
-      </div>
+      <router-link to="/">
+        <div class="logo">
+          <img class="logo-img" src="../assets/img/logo.png" alt="logo" />
+          <p class="logo-text">SnT<span> Electronics</span></p>
+        </div>
+      </router-link>
       <a
         @click="showMobileMenu = !showMobileMenu"
         class="menu-hamburger"
@@ -53,6 +55,12 @@
           </ul>
         </li>
       </ul>
+      <router-link class="admin-page-icon-box" to="/admin"
+        ><img
+          class="admin-page-icon"
+          src="../assets/img/person.svg"
+          alt="person icon"
+      /></router-link>
     </div>
   </header>
 </template>
@@ -79,4 +87,30 @@ export default {
 .active {
   display: block;
 }
+
+.admin-page-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.admin-page-icon-box {
+  width: 50px;
+  height: 50px;
+  background-color: #00bfff;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.admin-page-icon-box:hover {
+  cursor: pointer;
+  background-color: #87cefa;
+}
+
+.admin-page-icon-box:active {
+  background-color: #1e90ff;
+}
+
 </style>
