@@ -1,46 +1,51 @@
 <template>
-  <div class="register">
+  <div class="login">
+    <p>Для входу введіть ім'я користувача та пароль</p>
     <div>
       <form class="form" @submit.prevent="submit">
         <div>
-          <label for="username">І'мя користувача:</label>
+          <label for="username">Ім'я користувача:</label>
           <input type="text" name="username" v-model="form.username" />
         </div>
-        <!-- <div>
-          <label for="full_name">Full Name:</label>
-          <input type="text" name="full_name" v-model="form.full_name" />
-        </div> -->
         <div>
           <label for="password">Пароль:</label>
           <input type="password" name="password" v-model="form.password" />
         </div>
         <button class="submit-button" type="submit">Підтвердити</button>
       </form>
+      <p v-if="showError" id="error">Username or Password is incorrect</p>
+      <div class="have-account">
+        <p>Ви ще не зареєстровані?</p>
+        <router-link to="/register">
+          <button>Прейти до реєстрації</button>
+        </router-link>
+      </div>
     </div>
-    <p v-if="showError" id="error">Користувач з таким іменем уже існує</p>
   </div>
 </template>
 
 <script>
 import { mapActions } from "vuex";
 export default {
-  name: "Register",
+  name: "Login",
   components: {},
   data() {
     return {
       form: {
         username: "",
-        // full_name: "",
         password: "",
       },
       showError: false,
     };
   },
   methods: {
-    ...mapActions(["Register"]),
+    ...mapActions(["LogIn"]),
     async submit() {
+      const User = new FormData();
+      User.append("username", this.form.username);
+      User.append("password", this.form.password);
       try {
-        await this.Register(this.form);
+        await this.LogIn(User);
         this.$router.push("/posts");
         this.showError = false;
       } catch (error) {
@@ -50,17 +55,39 @@ export default {
   },
 };
 </script>
-<style scoped>
+
+<style scoped lang="scss">
 * {
   box-sizing: border-box;
 }
-.register {
+.have-account {
+  padding-top: 20px;
+  p {
+    background: rgba(0, 0, 0, 0.04);
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+    margin: 20px 0;
+  }
+  button {
+    background-color: #00bfff;
+    color: white;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 30px;
+    width: 100%;
+  }
+  button:hover {
+    cursor: pointer;
+    background-color: #87cefa;
+  }
+}
+.login {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 40px 0;
 }
 .form {
+  margin: 20px 0;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -76,7 +103,7 @@ label {
 }
 button[type="submit"] {
   background-color: #4caf50;
-  color: red;
+  color: white;
   padding: 12px 20px;
   cursor: pointer;
   border-radius: 30px;
