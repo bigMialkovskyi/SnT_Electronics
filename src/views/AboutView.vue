@@ -76,7 +76,7 @@ label {
 }
 button[type="submit"] {
   background-color: #4caf50;
-  color: white;
+  color: red;
   padding: 12px 20px;
   cursor: pointer;
   border-radius: 30px;
