@@ -246,7 +246,8 @@
 
     .container {
       display: grid;
-      grid-template-columns: 50% 50%;
+      grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+      grid-template-rows: auto auto;
       justify-content: space-between;
     }
   }
@@ -254,7 +255,8 @@
   .header-menu {
     border-left: 1px dashed #32a1ce;
     padding-left: 15px;
-    grid-column-start: 2;
+    grid-row-start: 2;
+    grid-column-start: 9;
     display: none;
     margin-left: auto;
     text-align: right;
@@ -273,17 +275,20 @@
     }
   }
 
-  .admin-page-icon-box {
-    grid-column-start: 3;
-    grid-row-start: 1;
-    margin-left: 10px;
+  .menu-hamburger {
+    margin-left: auto;
+    grid-column-start: 9;
+  }
+
+  .user-page-icon-box {
+    grid-column-start: 10;
   }
 }
 
 @media screen and (max-width: 575px) {
 
   .logo {
-    width: 55px;
+    max-width: 55px;
   }
 
 }

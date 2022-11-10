@@ -55,7 +55,7 @@
           </ul>
         </li>
       </ul>
-      <router-link class="admin-page-icon-box" to="/admin"
+      <router-link class="user-page-icon-box" to="/login"
         ><img
           class="admin-page-icon"
           src="../assets/img/person.svg"
@@ -93,7 +93,7 @@ export default {
   height: 18px;
 }
 
-.admin-page-icon-box {
+.user-page-icon-box {
   width: 50px;
   height: 50px;
   background-color: #00bfff;
@@ -104,12 +104,12 @@ export default {
   transition: background-color 0.3s;
 }
 
-.admin-page-icon-box:hover {
+.user-page-icon-box:hover {
   cursor: pointer;
   background-color: #87cefa;
 }
 
-.admin-page-icon-box:active {
+.user-page-icon-box:active {
   background-color: #1e90ff;
 }
 

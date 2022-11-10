@@ -1,7 +1,7 @@
 <template>
   <div class="default-layout">
     <Header />
-    <slot/>
+    <slot />
     <Footer />
   </div>
 </template>
@@ -17,3 +17,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.default-layout {
+  height: calc(99% - 60px - 80px); //app height - header height - footer heignt
+}
+</style>

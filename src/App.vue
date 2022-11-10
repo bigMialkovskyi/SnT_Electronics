@@ -28,6 +28,10 @@ export default {
 @import "./styles/default_styles.scss";
 @import "./styles/variables.scss";
 
+#app {
+  height: 100vh;
+}
+
 nav {
   padding: 30px;
 
