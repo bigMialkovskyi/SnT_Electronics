@@ -4,6 +4,7 @@
       <router-link to="/">
         <div class="logo">
           <img class="logo-img" src="../assets/img/logo.png" alt="logo" />
+          <!-- <p class="logo-text">SinTech</p> -->
           <p class="logo-text">SnT<span> Electronics</span></p>
         </div>
       </router-link>

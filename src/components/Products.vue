@@ -5,7 +5,7 @@
       <div class="product-type-container for-farmers">
         <ProductList
           render_product_type="for_farmers"
-          group_type_title="Розробки для аграріїв"
+          group_type_title="Розробки для аграріїв та сільського господарства"
         />
       </div>
       <div class="product-type-container measuring-devices">

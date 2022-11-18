@@ -23,8 +23,12 @@
           class="product-img-container"
           v-if="product.product_type == render_product_type"
         >
+          <!-- <img
+           :src="`http://localhost:3093/uploads/${product.media.path.split('\\')[2]}`"
+            alt="product"
+          /> -->
           <img
-            :src="`data:image/png;base64, ${product.img}`"
+           :src="`https://snt-electronics.herokuapp.com/uploads/${product.media.path.split('\\')[2]}`"
             alt="product"
           />
         </div>
@@ -69,7 +73,7 @@ export default {
     fetchProducts() {
       productApi.fetchAvailableProducts().then((products) => {
         this.products = products;
-        console.log(products);
+        // console.log(products);
       });
     },
   },
