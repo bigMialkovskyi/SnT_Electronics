@@ -7,10 +7,6 @@
           <label for="username">Ім'я користувача:</label>
           <input type="text" name="username" v-model="form.login" />
         </div>
-        <!-- <div>
-          <label for="full_name">Full Name:</label>
-          <input type="text" name="full_name" v-model="form.full_name" />
-        </div> -->
         <div>
           <label for="password">Пароль:</label>
           <input type="password" name="password" v-model="form.password" />
@@ -37,7 +33,6 @@ export default {
     return {
       form: {
         login: "",
-        // full_name: "",
         password: "",
       },
       showError: false,
@@ -48,7 +43,7 @@ export default {
     async submit() {
       try {
         await this.Register(this.form);
-        this.$router.push("/user-page");
+        this.$router.push("/login");
         this.showError = false;
       } catch (error) {
         console.error(error);
@@ -58,6 +53,7 @@ export default {
   },
 };
 </script>
+
 <style scoped lang="scss">
 * {
   box-sizing: border-box;

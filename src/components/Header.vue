@@ -56,12 +56,20 @@
           </ul>
         </li>
       </ul>
-      <router-link class="user-page-icon-box" to="/login"
-        ><img
-          class="admin-page-icon"
+      <router-link class="user-page-icon-box" to="/login">
+        <img
+          class="user-page-icon"
           src="../assets/img/person.svg"
           alt="person icon"
-      /></router-link>
+        />
+      </router-link>
+      <span v-if="isLoggedIn" class="log-out-icon-box" @click="logout">
+        <img
+          class="user-page-icon"
+          src="../assets/img/log-out.svg"
+          alt="person icon"
+        />
+      </span>
     </div>
   </header>
 </template>
@@ -69,13 +77,21 @@
 <script>
 export default {
   name: "Header",
-  props: {
-    msg: String,
+  computed: {
+    isLoggedIn: function () {
+      return this.$store.getters.isAuthenticated;
+    },
   },
   data: function () {
     return {
       showMobileMenu: false,
     };
+  },
+  methods: {
+    async logout() {
+      await this.$store.dispatch("LogOut");
+      this.$router.push("/login");
+    },
   },
 };
 </script>
@@ -89,12 +105,13 @@ export default {
   display: block;
 }
 
-.admin-page-icon {
+.user-page-icon {
   width: 18px;
   height: 18px;
 }
 
-.user-page-icon-box {
+.user-page-icon-box,
+.log-out-icon-box {
   width: 50px;
   height: 50px;
   background-color: #00bfff;
@@ -113,5 +130,4 @@ export default {
 .user-page-icon-box:active {
   background-color: #1e90ff;
 }
-
 </style>
