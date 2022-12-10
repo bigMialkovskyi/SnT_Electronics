@@ -23,14 +23,14 @@
           class="product-img-container"
           v-if="product.product_type == render_product_type"
         >
-          <img
+          <!-- <img
            :src="`http://localhost:3093/uploads/${product.media.path.split('\\')[2]}`"
             alt="product"
-          />
-          <!-- <img
+          /> -->
+          <img
             :src="`https://snt-electronics.herokuapp.com/uploads/${product.media.path.split('\\')[2] || product.media.path.split('/')[1]}`"
             alt="product"
-          /> -->
+          />
         </div>
 
         <div

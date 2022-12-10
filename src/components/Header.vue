@@ -56,10 +56,17 @@
           </ul>
         </li>
       </ul>
-      <router-link class="user-page-icon-box" to="/login">
+      <router-link v-if="!isLoggedIn" class="user-page-icon-box" to="/login">
         <img
           class="user-page-icon"
-          src="../assets/img/person.svg"
+          src="../assets/img/person-no-login.svg"
+          alt="person icon"
+        />
+      </router-link>
+      <router-link v-if="isLoggedIn" class="user-page-icon-box" to="/user-page">
+        <img
+          class="user-page-icon"
+          src="../assets/img/person-logined.svg"
           alt="person icon"
         />
       </router-link>
