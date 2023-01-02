@@ -22,7 +22,7 @@
             <div class="icon-container">
               <img src="../assets/img/mail.svg" alt="">
             </div>
-            <a href="">sntelectronics@gmai.com</a>
+            <a href="">sntelectronx@gmai.com</a>
           </li>
         </ul>
 
