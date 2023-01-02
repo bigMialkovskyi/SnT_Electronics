@@ -1,7 +1,7 @@
 <template>
    <section class="contacts">
     <div class="container">
-      <h1 class="contacts-title">Звяжіться з нами</h1>
+      <h1 class="contacts-title">Зв'яжіться з нами</h1>
       <div class="contacts-info">
         <ul class="contacts-list">
           <p>Телефонуйте:</p>
