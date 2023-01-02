@@ -7,7 +7,8 @@ import axios from "axios";
 // dotenv.config()
 
 // axios.defaults.withCredentials = true;
-axios.defaults.baseURL = "http://localhost:3093/";
+axios.defaults.baseURL = "https://snt-electronics.herokuapp.com/";
+// axios.defaults.baseURL = "http://localhost:3093/";
 // axios.defaults.baseURL = "localhost:3093/";
 // axios.defaults.baseURL = "127.0.0.1";
 

@@ -5,11 +5,18 @@
         <h1 class="about-us-title">про нас</h1>
         <div class="about-us-desc">
           <p class="about-us-text">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-            Nulla consequat massa quis enim.
+            Наша компанія є взірцем у виробництві електроніки на замовлення. Ми
+            пропонуємо широкий спектр послуг, включаючи проектування, створення
+            прототипів і виробництво електроніки для задоволення конкретних
+            потреб наших клієнтів. Незалежно від того, чи потрібна вам невелика
+            партія спеціально розроблених схем чи велика виробнича партія
+            спеціалізованих електронних компонентів, у нас є досвід і ресурси,
+            щоб надати високоякісні продукти, які точно відповідають вашим
+            вимогам. Наша команда досвідчених інженерів і техніків прагне
+            забезпечити відмінне обслуговування клієнтів і досягти виняткових
+            результатів. Зв’яжіться з нами сьогодні, щоб дізнатися більше про
+            те, як ми можемо допомогти вам із вашими потребами у виробництві
+            електроніки.
           </p>
           <img src="../assets/img/PCB-about.jpg" alt="PCB-about" />
         </div>

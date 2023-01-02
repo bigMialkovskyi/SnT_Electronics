@@ -15,17 +15,24 @@ const getters = {
 const actions = {
   async Register({dispatch, commit}, form) {
     const response = await axios.post('auth/users/register', form)
-    console.log(response)
     if (!response.data.success) return
     if (!response.data.token) return
     await commit("setUser", response.data.user.login);
     setCookie("token", response.data.token, 1)
   },  
 
-  async LogIn({commit}, user) {
-    await axios.post("login", user);
-    await commit("setUser", user.get("username"));
-  },
+  async LogIn({dispatch, commit}, form) {
+    const response = await axios.post('auth/users/login', form)
+    if (!response.data.success) return
+    if (!response.data.token) return
+    await commit("setUser", response.data.username);
+    setCookie("token", response.data.token, 1)
+  }, 
+
+  // async LogIn({commit}, user) {
+  //   await axios.post("login", user);
+  //   await commit("setUser", user.get("username"));
+  // },
 
   async CreatePost({ dispatch }, post) {
     await axios.post("post", post);
@@ -40,6 +47,7 @@ const actions = {
   async LogOut({ commit }) {
     let user = null;
     commit("logout", user);
+    deleteCookie("token")
   },
 };
 

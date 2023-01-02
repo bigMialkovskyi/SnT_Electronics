@@ -5,13 +5,13 @@
       <form class="form" @submit.prevent="submit">
         <div>
           <label for="username">Ім'я користувача:</label>
-          <input type="text" name="username" v-model="form.username" />
+          <input type="text" name="username" v-model="form.login" />
         </div>
         <div>
           <label for="password">Пароль:</label>
           <input type="password" name="password" v-model="form.password" />
         </div>
-        <button class="submit-button" type="submit">Підтвердити</button>
+        <button class="submit-button" type="submit">Вхід</button>
       </form>
       <p v-if="showError" id="error">Username or Password is incorrect</p>
       <div class="have-account">
@@ -32,7 +32,7 @@ export default {
   data() {
     return {
       form: {
-        username: "",
+        login: "",
         password: "",
       },
       showError: false,
@@ -42,11 +42,12 @@ export default {
     ...mapActions(["LogIn"]),
     async submit() {
       const User = new FormData();
-      User.append("username", this.form.username);
-      User.append("password", this.form.password);
+      // User.append("login", this.form.login);
+      // User.append("password", this.form.password);
       try {
-        await this.LogIn(User);
-        this.$router.push("/posts");
+        // await this.LogIn(User);
+        await this.LogIn(this.form);
+        this.$router.push("/user-page");
         this.showError = false;
       } catch (error) {
         this.showError = true;

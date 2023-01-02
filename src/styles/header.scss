@@ -256,7 +256,7 @@
     border-left: 1px dashed #32a1ce;
     padding-left: 15px;
     grid-row-start: 2;
-    grid-column-start: 9;
+    grid-column-start: 8;
     display: none;
     margin-left: auto;
     text-align: right;
@@ -277,10 +277,14 @@
 
   .menu-hamburger {
     margin-left: auto;
-    grid-column-start: 9;
+    grid-column-start: 8;
   }
 
   .user-page-icon-box {
+    grid-column-start: 9;
+  }
+
+  .log-out-icon-box {
     grid-column-start: 10;
   }
 }

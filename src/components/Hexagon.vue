@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     randomIntTop: () => Math.floor(Math.random() * (90 - 10) + 10),
-    randomIntLeft: () => Math.floor(Math.random() * 90),
+    randomIntLeft: () => Math.floor(Math.random() * 80),
     randHexType: () => {
       let hexagon_type = ["hexagon-small", "hexagon-medium", "hexagon-big"];
       let rand = Math.floor(Math.random() * hexagon_type.length);
