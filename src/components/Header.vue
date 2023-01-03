@@ -4,7 +4,6 @@
       <router-link to="/">
         <div class="logo">
           <img class="logo-img" src="../assets/img/logo.png" alt="logo" />
-          <!-- <p class="logo-text">SinTech</p> -->
           <p class="logo-text">SnT<span> Electronics</span></p>
         </div>
       </router-link>
@@ -17,28 +16,29 @@
       </a>
       <ul class="header-menu" :class="{ active: showMobileMenu }">
         <li class="down">
-          <a href="#">Наша продукція</a>
+          <a href="#our-products">Наша продукція</a>
           <ul class="submenu">
             <li>
-              <img src="../assets/img/battery-status.svg" alt="icon" /><a
-                href=""
-                >Блоки живлення</a
+              <img src="../assets/img/ear-of-corn.svg" alt="icon" /><a
+                href="#for_farmers"
+                >Аграрні розробки</a
               >
             </li>
             <li>
-              <img src="../assets/img/option-2.svg" alt="icon" /><a href=""
-                >Блоки управління</a
-              >
-            </li>
-            <li>
-              <img src="../assets/img/weight-scale.svg" alt="icon" /><a href=""
+              <img src="../assets/img/weight-scale.svg" alt="icon" /><a
+                href="#measuring_device"
                 >Вимірювальні прилади</a
+              >
+            </li>
+            <li>
+              <img src="../assets/img/gear.svg" alt="icon" /><a href="#other"
+                >Інше</a
               >
             </li>
           </ul>
         </li>
-        <li><a href="#">Про нас</a></li>
-        <li><a href="#">Контакти </a></li>
+        <li><a href="#general-info">Про нас</a></li>
+        <li><a href="#contacts">Контакти </a></li>
       </ul>
       <ul class="tel header-menu">
         <li class="down">
