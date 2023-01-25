@@ -11,10 +11,15 @@
     </section>
     <div class="message">
       <h2>
-        Зовсім скоро ми перезнтуємо нашу нову розробку для професійного аграрного
-        сектору та домашнього використання
+        Зовсім скоро ми перезнтуємо нашу нову розробку для професійного
+        аграрного сектору та домашнього використання
       </h2>
     </div>
+    <ul class="sensors-list">
+      <li class="sensor-element" v-for="device in devices">
+        <p>{{ device }}</p>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -26,7 +31,17 @@ export default {
   data() {
     return {
       showError: false,
+      devices: [],
     };
+  },
+  mounted() {
+    this.devices = this.getSensorsList();
+    console.log(this.devices);
+  },
+  methods: {
+    async getSensorsList() {
+      return await Promise.all(this.$store.state.devices);
+    },
   },
 };
 </script>
