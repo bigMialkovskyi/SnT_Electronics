@@ -28,7 +28,10 @@
             alt="product"
           /> -->
           <img
-            :src="`https://snt-electronics.herokuapp.com/uploads/${product.media.path.split('\\')[2] || product.media.path.split('/')[1]}`"
+            :src="`https://snt-electronics.herokuapp.com/uploads/${
+              product.media.path.split('\\')[2] ||
+              product.media.path.split('/')[1]
+            }`"
             alt="product"
           />
         </div>

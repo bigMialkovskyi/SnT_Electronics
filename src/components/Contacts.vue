@@ -1,5 +1,5 @@
 <template>
-   <section class="contacts">
+   <section id="contacts"   class="contacts">
     <div class="container">
       <h1 class="contacts-title">Зв'яжіться з нами</h1>
       <div class="contacts-info">
@@ -32,7 +32,8 @@
             <div class="icon-container">
               <img src="../assets/img/instagram-social.svg" alt="">
             </div>
-            <p>Instagram</p>
+            <a href="https://instagram.com/snt_electronics?igshid=OGQ2MjdiOTE=">Instagram</a>
+            <!-- <p>Instagram</p> -->
           </li>
           <li>
             <div class="icon-container">
