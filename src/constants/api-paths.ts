@@ -20,4 +20,5 @@ export const API_PATHS = {
 	import: 'https://snt-electronics.herokuapp.com',
 	bff: 'https://snt-electronics.herokuapp.com',
 	cart: 'https://snt-electronics.herokuapp.com',
+	local: 'http://localhost:3093',
 };

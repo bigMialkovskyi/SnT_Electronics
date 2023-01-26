@@ -1,29 +1,27 @@
 import axios from 'axios';
+import store from "@/store";
 
 import { API_PATHS } from '@/constants/api-paths';
-import { Product } from '@/models/product';
 
-const fetchAvailableProducts = async (): Promise<Product[]> => {
-	return axios
-		.get(`${API_PATHS.bff}/products/get/all`)
-		.then(res => res.data.products)
+let sensorsList = store.getters.StateDevices;
+
+const data = {
+	sensorsList: sensorsList
+}
+
+const getMeasurements = async () => {
+	return await axios
+		.post(`${API_PATHS.local}/agro-gsm-sensor/get/measurements`, data)
+		.then(res => {
+			res.data.measForRespose
+			console.log(res)
+		})
 		.catch(e => {
 			console.error(e);
-      return
+			return
 		});
 };
 
-const fetchProducts = async (): Promise<Product[]> => {
-	return axios
-		.get(`${API_PATHS.bff}/products/get/all`)
-		.then(res => res.data.products)
-		.catch(e => {
-			console.error(e);
-      return
-		});
-};
-
-export const productApi = {
-	fetchAvailableProducts,
-	fetchProducts,
+export const sensorApi = {
+	getMeasurements
 };

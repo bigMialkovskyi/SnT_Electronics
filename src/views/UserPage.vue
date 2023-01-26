@@ -5,7 +5,6 @@
         <div class="banner-content">
           <h1 class="slogan">COMMING SOON</h1>
           <h2 class="slogan-desc">Дякуюємо що ви з нами</h2>
-          <!-- <a href="#">Зв'яжись з нами</a> -->
         </div>
       </div>
     </section>
@@ -16,7 +15,7 @@
       </h2>
     </div>
     <ul class="sensors-list">
-      <li class="sensor-element" v-for="device in devices">
+      <li class="sensor-element" v-for="device in devices" :key="device.id">
         <p>{{ device }}</p>
       </li>
     </ul>
@@ -25,24 +24,44 @@
 
 
 <script>
+import store from "@/store";
+import { sensorApi } from "@/api/sensors-api";
+
 export default {
   name: "UserPage",
+  store,
   components: {},
+
   data() {
     return {
       showError: false,
-      devices: [],
+      devices: null,
     };
   },
-  mounted() {
-    this.devices = this.getSensorsList();
-    console.log(this.devices);
+
+  // mounted() {
+  //   // this.devices = this.getSensorsList;
+  // },
+
+  mounted: async function () {
+    // this.getSensorsList();
+    this.getSensors();
+    // console.log(this.devices)
   },
+
   methods: {
-    async getSensorsList() {
-      return await Promise.all(this.$store.state.devices);
+    getSensors() {
+      sensorApi.getMeasurements().then((measForRespose) => {
+        this.devices = measForRespose;
+      });
     },
   },
+
+  // computed: {
+  //   getSensorsList: function () {
+  //     return this.$store.getters.StateDevices;
+  //   },
+  // },
 };
 </script>
 

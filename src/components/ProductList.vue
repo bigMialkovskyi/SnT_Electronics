@@ -76,7 +76,6 @@ export default {
     fetchProducts() {
       productApi.fetchAvailableProducts().then((products) => {
         this.products = products;
-        console.log(products);
       });
     },
   },
