@@ -12,10 +12,7 @@ const data = {
 const getMeasurements = async () => {
 	return await axios
 		.post(`${API_PATHS.local}/agro-gsm-sensor/get/measurements`, data)
-		.then(res => {
-			res.data.measForRespose
-			console.log(res)
-		})
+		.then(res => res.data.measForRespose)
 		.catch(e => {
 			console.error(e);
 			return
