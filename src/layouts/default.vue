@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.default-layout {
-  height: calc(99% - 60px - 80px); //app height - header height - footer heignt
-}
+// .default-layout {
+  // height: calc(99% - 60px - 80px); //app height - header height - footer heignt
+// }
 </style>
