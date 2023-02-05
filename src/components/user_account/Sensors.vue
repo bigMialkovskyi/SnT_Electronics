@@ -1,7 +1,12 @@
 <template>
   <div class="user-document">
     <ul class="sensors-list">
-      <li @click="selected = this.device.id" class="sensor-element" v-for="device in devices" :key="device.id">
+      <li
+        @click="selected = `${device.id}`"
+        class="sensor-element"
+        v-for="device in devices"
+        :key="device.id"
+      >
         <p>{{ device.name }}</p>
       </li>
     </ul>
@@ -24,7 +29,7 @@ export default {
     return {
       showError: false,
       devices: [],
-      selected: null,
+      selected: "",
     };
   },
 
@@ -33,7 +38,34 @@ export default {
     this.createChart();
   },
 
+  watch: {
+    async selected(newVal) {
+      this.createChart();
+    },
+  },
+
+  // computed: {
+  //   async selectDevice() {
+  //     const result = null;
+  //     this.devices.forEach((element) => {
+  //       console.log(element.id);
+  //       // if (element.id == this.selected) result = element;
+  //     });
+  //     console.log(result);
+  //     return result;
+  //   },
+  // },
+
   methods: {
+    async selectDevice() {
+      let result = {};
+      if (!this.selected) return null;
+      this.devices.forEach((element) => {
+        if (element.id == this.selected) result = element;
+      });
+      return result;
+    },
+
     async getSensors() {
       return await sensorApi.getMeasurements();
     },
@@ -41,8 +73,14 @@ export default {
     async getMeas() {
       const temperature = [];
       const date = [];
+      let device;
 
-      this.devices[1].measurements.forEach((element) => {
+      if ((await this.selectDevice()) == null) device = this.devices[0];
+      else device = await this.selectDevice();
+
+      console.log(device);
+
+      device.measurements.forEach((element) => {
         temperature.push(element.airTemperature);
         date.push(element.updateTime.slice(4, 21));
       });
@@ -52,10 +90,16 @@ export default {
       };
     },
 
+    // destroyChart(){
+    //    var grapharea = document.getElementById("myChart").getContext("2d");
+    //    grapharea.destroy()
+    // },
+
     async createChart() {
       const { temperature, date } = await this.getMeas();
-      console.log(temperature, date);
-      new Chart(document.getElementById("myChart").getContext("2d"), {
+      let grapharea = document.getElementById("myChart").getContext("2d");
+
+      let chart = new Chart(grapharea, {
         type: "line",
         data: {
           labels: date,
@@ -75,6 +119,7 @@ export default {
           },
         },
       });
+      // if (chart) chart.destroy();
     },
   },
 };

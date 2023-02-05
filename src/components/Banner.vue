@@ -2,6 +2,7 @@
   <section class="banner">
     <div class="container">
       <div class="banner-content" v-if="!showModal">
+        <!-- <h1 class="slogan">Здоров Василь</h1> -->
         <h1 class="slogan">Електроніка на замовлення</h1>
         <h2 class="slogan-desc">Ваші бажання - наші турботи</h2>
         <a href="#" @click="showModal = true">Зв'яжись з нами</a>
