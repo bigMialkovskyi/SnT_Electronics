@@ -44,18 +44,6 @@ export default {
     },
   },
 
-  // computed: {
-  //   async selectDevice() {
-  //     const result = null;
-  //     this.devices.forEach((element) => {
-  //       console.log(element.id);
-  //       // if (element.id == this.selected) result = element;
-  //     });
-  //     console.log(result);
-  //     return result;
-  //   },
-  // },
-
   methods: {
     async selectDevice() {
       let result = {};
@@ -71,42 +59,52 @@ export default {
     },
 
     async getMeas() {
-      const temperature = [];
+      const airTemperature = [];
+      const soilTemperature = [];
+      const preasure = [];
+      const humidity = [];
       const date = [];
       let device;
 
       if ((await this.selectDevice()) == null) device = this.devices[0];
       else device = await this.selectDevice();
 
-      console.log(device);
+      // console.log(device);
 
       device.measurements.forEach((element) => {
-        temperature.push(element.airTemperature);
-        date.push(element.updateTime.slice(4, 21));
+        airTemperature.unshift(element.airTemperature);
+        soilTemperature.unshift(element.soilTemperature);
+        preasure.unshift(element.preasure);
+        humidity.unshift(element.humidity);
+        date.unshift(element.updateTime.slice(4, 21));
       });
       return {
-        temperature,
+        airTemperature,
+        soilTemperature,
+        preasure,
+        humidity,
         date,
       };
     },
 
-    // destroyChart(){
-    //    var grapharea = document.getElementById("myChart").getContext("2d");
-    //    grapharea.destroy()
-    // },
-
     async createChart() {
-      const { temperature, date } = await this.getMeas();
+      const { airTemperature, soilTemperature, preasure, humidity, date } = await this.getMeas();
       let grapharea = document.getElementById("myChart").getContext("2d");
 
-      let chart = new Chart(grapharea, {
+      //canvas refresh
+      let chartStatus = Chart.getChart("myChart"); // <canvas> id
+      if (chartStatus != undefined) {
+        chartStatus.destroy();
+      }
+
+      new Chart(grapharea, {
         type: "line",
         data: {
           labels: date,
           datasets: [
             {
-              label: "# temperature level ",
-              data: temperature,
+              label: "air temperature level",
+              data: airTemperature,
               borderWidth: 1,
             },
           ],
@@ -119,7 +117,6 @@ export default {
           },
         },
       });
-      // if (chart) chart.destroy();
     },
   },
 };
@@ -163,5 +160,18 @@ export default {
   height: 7vh;
   border-radius: 5px;
   background-color: rgb(0, 180, 255);
+}
+
+.sensor-element:hover {
+  cursor: pointer;
+  background-color: #87cefa;
+}
+
+.sensor-element:active {
+  background-color: #1e90ff;
+}
+
+.sensor-element:focus {
+  background-color: #1e90ff;
 }
 </style>
