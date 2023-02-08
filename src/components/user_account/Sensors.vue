@@ -11,6 +11,28 @@
       </li>
     </ul>
     <div class="chart">
+      <div class="nav-bar">
+        <ul class="options">
+          <li
+            @click="selectedParameter = `airTemperature`"
+            class="option-element"
+          >
+            air temperature
+          </li>
+          <li
+            @click="selectedParameter = `soilTemperature`"
+            class="option-element"
+          >
+            soil temperature
+          </li>
+          <li @click="selectedParameter = `pressure`" class="option-element">
+            pressure
+          </li>
+          <li @click="selectedParameter = `humidity`" class="option-element">
+            humidity
+          </li>
+        </ul>
+      </div>
       <canvas class="chart-element" id="myChart"></canvas>
     </div>
   </div>
@@ -30,6 +52,7 @@ export default {
       showError: false,
       devices: [],
       selected: "",
+      selectedParameter: "",
     };
   },
 
@@ -40,6 +63,10 @@ export default {
 
   watch: {
     async selected(newVal) {
+      this.createChart();
+    },
+
+    selectedParameter(newVal) {
       this.createChart();
     },
   },
@@ -61,7 +88,7 @@ export default {
     async getMeas() {
       const airTemperature = [];
       const soilTemperature = [];
-      const preasure = [];
+      const pressure = [];
       const humidity = [];
       const date = [];
       let device;
@@ -69,27 +96,51 @@ export default {
       if ((await this.selectDevice()) == null) device = this.devices[0];
       else device = await this.selectDevice();
 
-      // console.log(device);
-
       device.measurements.forEach((element) => {
         airTemperature.unshift(element.airTemperature);
         soilTemperature.unshift(element.soilTemperature);
-        preasure.unshift(element.preasure);
+        pressure.unshift(element.pressure);
         humidity.unshift(element.humidity);
         date.unshift(element.updateTime.slice(4, 21));
       });
       return {
         airTemperature,
         soilTemperature,
-        preasure,
+        pressure,
         humidity,
         date,
       };
     },
 
     async createChart() {
-      const { airTemperature, soilTemperature, preasure, humidity, date } = await this.getMeas();
+      const { airTemperature, soilTemperature, pressure, humidity, date } =
+        await this.getMeas();
       let grapharea = document.getElementById("myChart").getContext("2d");
+
+      let measForRender = [];
+      let label = "";
+
+      switch (this.selectedParameter) {
+        case "airTemperature":
+          measForRender = airTemperature;
+          label = "air temperature level";
+          break;
+        case "soilTemperature":
+          measForRender = soilTemperature;
+          label = "soil temperature level";
+          break;
+        case "pressure":
+          measForRender = pressure;
+          label = "pressure level";
+          break;
+        case "humidity":
+          measForRender = humidity;
+          label = "humidity level";
+          break;
+        default:
+          measForRender = airTemperature;
+          label = "air temperature level";
+      }
 
       //canvas refresh
       let chartStatus = Chart.getChart("myChart"); // <canvas> id
@@ -103,8 +154,8 @@ export default {
           labels: date,
           datasets: [
             {
-              label: "air temperature level",
-              data: airTemperature,
+              label: label,
+              data: measForRender,
               borderWidth: 1,
             },
           ],
@@ -131,7 +182,9 @@ export default {
 
 .chart {
   height: 80vh;
-  // width: 80vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .chart-element {
@@ -173,5 +226,45 @@ export default {
 
 .sensor-element:focus {
   background-color: #1e90ff;
+}
+
+.options {
+  display: flex;
+  height: 5vh;
+  width: 68vw;
+  margin: 20px 0;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 5px;
+  background-color: rgb(0, 191, 255);
+}
+
+.option-element {
+  display: flex;
+  align-items: center;
+  padding: 0 3%;
+  // height: 95%;
+  border: 1px solid rgb(100, 149, 237);
+  // margin: 5px 0;
+  height: 4vh;
+  border-radius: 5px;
+  background-color: rgb(0, 180, 255);
+}
+
+.option-element:hover {
+  cursor: pointer;
+  background-color: #87cefa;
+}
+
+.option-element:active {
+  background-color: #1e90ff;
+}
+
+.option-element:focus {
+  background-color: #1e90ff;
+}
+
+li {
+  text-transform: uppercase;
 }
 </style>
