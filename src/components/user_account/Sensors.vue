@@ -9,7 +9,14 @@
       >
         <p>{{ device.name }}</p>
       </li>
+      <li
+        @click="showModal = !showModal"
+        class="sensor-element new-sensor-button"
+      >
+        add new sensor
+      </li>
     </ul>
+
     <div class="chart">
       <div class="nav-bar">
         <ul class="options">
@@ -35,6 +42,11 @@
       </div>
       <canvas class="chart-element" id="myChart"></canvas>
     </div>
+    <NewSensorWindow
+      v-if="showModal"
+      @close="showModal = false"
+      @confirm="connectSensor"
+    />
   </div>
 </template>
 
@@ -42,14 +54,20 @@
 import store from "@/store";
 import { sensorApi } from "@/api/sensors-api";
 import Chart from "chart.js/auto";
+import NewSensorWindow from "@/components/user_account/NewSensorWindow.vue";
 
 export default {
   name: "Sensors",
   store,
 
+  components: {
+    NewSensorWindow,
+  },
+
   data() {
     return {
       showError: false,
+      showModal: false,
       devices: [],
       selected: "",
       selectedParameter: "",
@@ -169,6 +187,18 @@ export default {
         },
       });
     },
+
+    async connectSensor({ userID, sensorID, sensorName }) {
+      const form = {
+        userID: userID,
+        sensorID: sensorID,
+        name: sensorName,
+      };
+      // console.log(userID)
+      // console.log(sensorID)
+      // console.log(sensorName)
+      console.log(await sensorApi.connectSensor(form));
+    },
   },
 };
 </script>
@@ -266,5 +296,9 @@ export default {
 
 li {
   text-transform: uppercase;
+}
+
+.new-sensor-button {
+  margin-top: auto;
 }
 </style>

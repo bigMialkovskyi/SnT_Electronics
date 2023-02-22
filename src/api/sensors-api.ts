@@ -19,6 +19,19 @@ const getMeasurements = async () => {
 		});
 };
 
+const connectSensor = async (form: any) => {
+	return await axios
+		.post(`${API_PATHS.local}/agro-gsm-sensor/connect/user`, form)
+		.then(res => res.data.message)
+		.catch(e => {
+			// console.log(res.data.error)
+			console.error(e);
+			// console.error(e.response.data.error);
+			return
+		});
+};
+
 export const sensorApi = {
-	getMeasurements
+	getMeasurements,
+	connectSensor
 };
