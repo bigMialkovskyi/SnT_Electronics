@@ -7,7 +7,35 @@
         v-for="device in devices"
         :key="device.id"
       >
-        <p>{{ device.name }}</p>
+        <div>
+          <p>{{ device.name }}</p>
+          <div class="preview-bar">
+            <div class="preview-element">
+              <img
+                class="battery-icon"
+                src="../../assets/img/battery-charging-vertical.svg"
+                alt="batery"
+              />
+              {{ device.batteryStatus }}
+            </div>
+            <div class="preview-element">
+              <img
+                class="battery-icon"
+                src="../../assets/img/temperature-low.svg"
+                alt="batery"
+              />
+              <p>{{ device.measurements[0].airTemperature }}</p>
+            </div>
+            <div class="preview-element">
+              <img
+                class="battery-icon"
+                src="../../assets/img/humidity-light.svg"
+                alt="batery"
+              />
+              <p>{{ device.measurements[0].humidity }}</p>
+            </div>
+          </div>
+        </div>
       </li>
       <li
         @click="showModal = !showModal"
@@ -279,6 +307,22 @@ export default {
   height: 4vh;
   border-radius: 5px;
   background-color: rgb(0, 180, 255);
+}
+
+.preview-bar {
+  display: flex;
+  align-items: center;
+}
+
+.preview-element {
+  margin-top: 1vh;
+  margin-right: 1vh;
+  display: flex;
+  align-items: center;
+}
+
+.battery-icon {
+  height: 2vh;
 }
 
 .option-element:hover {
