@@ -7,33 +7,43 @@
         v-for="device in devices"
         :key="device.id"
       >
-        <div>
+        <!-- <div>
           <p>{{ device.name }}</p>
-          <div class="preview-bar">
-            <div class="preview-element">
-              <img
-                class="battery-icon"
-                src="../../assets/img/battery-charging-vertical.svg"
-                alt="batery"
-              />
-              {{ device.batteryStatus }}
-            </div>
-            <div class="preview-element">
-              <img
-                class="battery-icon"
-                src="../../assets/img/temperature-low.svg"
-                alt="batery"
-              />
-              <p>{{ device.measurements[0].airTemperature }}</p>
-            </div>
-            <div class="preview-element">
-              <img
-                class="battery-icon"
-                src="../../assets/img/humidity-light.svg"
-                alt="batery"
-              />
-              <p>{{ device.measurements[0].humidity }}</p>
-            </div>
+        </div> -->
+        <p class="device-name">{{ device.name }}</p>
+
+        <div class="preview-bar">
+          <div class="preview-element">
+            <img
+              class="preview-element-icon"
+              src="../../assets/img/battery-charging-vertical.svg"
+              alt="batery"
+            />
+            {{ device.batteryStatus }}
+          </div>
+          <div class="preview-element">
+            <img
+              class="preview-element-icon"
+              src="../../assets/img/temperature-low.svg"
+              alt="batery"
+            />
+            <p>{{ device.measurements[0].airTemperature }}</p>
+          </div>
+          <div class="preview-element">
+            <img
+              class="preview-element-icon"
+              src="../../assets/img/humidity-light.svg"
+              alt="batery"
+            />
+            <p>{{ device.measurements[0].humidity }}</p>
+          </div>
+          <div class="preview-element">
+            <img
+              class="preview-element-icon"
+              src="../../assets/img/p-button.svg"
+              alt="batery"
+            />
+            <p>{{ device.measurements[0].pressure }}</p>
           </div>
         </div>
       </li>
@@ -41,7 +51,7 @@
         @click="showModal = !showModal"
         class="sensor-element new-sensor-button"
       >
-        add new sensor
+        <p>add new sensor</p>
       </li>
     </ul>
 
@@ -262,9 +272,11 @@ export default {
 }
 
 .sensor-element {
+  padding: 0.5vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: 0 3%;
+  // padding: 0 3%;
   width: 95%;
   border: 1px solid rgb(100, 149, 237);
   margin: 5px 0;
@@ -284,6 +296,10 @@ export default {
 
 .sensor-element:focus {
   background-color: #1e90ff;
+}
+
+.device-name {
+  margin-right: auto;
 }
 
 .options {
@@ -310,19 +326,24 @@ export default {
 }
 
 .preview-bar {
+  background-color: #1e90ff;
+  border-radius: 5px;
   display: flex;
+  width: 100%;
   align-items: center;
+  justify-content: space-evenly;
+  padding: 0.5vh;
 }
 
 .preview-element {
-  margin-top: 1vh;
-  margin-right: 1vh;
+  // margin-top: 1vh;
+  // margin-right: 1vh;
   display: flex;
   align-items: center;
 }
 
-.battery-icon {
-  height: 2vh;
+.preview-element-icon {
+  height: 2.5vh;
 }
 
 .option-element:hover {
@@ -344,5 +365,8 @@ li {
 
 .new-sensor-button {
   margin-top: auto;
+  p {
+    margin: auto;
+  }
 }
 </style>

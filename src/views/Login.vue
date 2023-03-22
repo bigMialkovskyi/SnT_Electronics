@@ -5,11 +5,11 @@
       <form class="form" @submit.prevent="submit">
         <div>
           <label for="username">Ім'я користувача:</label>
-          <input type="text" name="username" v-model="form.login" />
+          <input type="text" name="username" v-model="form.login" required/>
         </div>
         <div>
           <label for="password">Пароль:</label>
-          <input type="password" name="password" v-model="form.password" />
+          <input type="password" name="password" v-model="form.password" required/>
         </div>
         <button class="submit-button" type="submit">Вхід</button>
       </form>
