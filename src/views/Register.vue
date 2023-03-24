@@ -13,7 +13,7 @@
         </div>
         <button class="submit-button" type="submit">Підтвердити</button>
       </form>
-      <p v-if="showError" id="error">Користувач з таким іменем уже існує</p>
+      <p v-if="showError" id="error">{{errorMessage}}</p>
       <div class="have-account">
         <p>Ви вже зареєстровані?</p>
         <router-link to="/login">
@@ -35,6 +35,7 @@ export default {
         login: "",
         password: "",
       },
+      errorMessage:"",
       showError: false,
     };
   },
@@ -47,6 +48,7 @@ export default {
         this.showError = false;
       } catch (error) {
         console.error(error);
+        this.errorMessage = error.response.data.error
         this.showError = true;
       }
     },

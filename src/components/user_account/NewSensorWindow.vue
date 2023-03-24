@@ -127,14 +127,24 @@ label {
 }
 
 .nav-btn {
+  background-color: #0099ff;
   width: 80px;
   height: 40px;
   border-radius: 10%;
   border: none;
-  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  /* box-shadow: 5px 10px 15px 5px rgba(102, 255, 51, 0.5); */
+  /* box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); */
 }
 
-.green-btn {
+.nav-btn:hover {
+  background-color: #33adff;
+}
+
+.nav-btn:active {
+  background-color: #007acc;
+}
+
+/* .green-btn {
   background-color: #66ff33;
 }
 
@@ -144,9 +154,13 @@ label {
 
 .green-btn:active {
   background-color: #40ff00;
+} */
+
+.green-btn {
+  box-shadow: 5px 10px 15px 5px rgba(64, 255, 0, 0.5);
 }
 
-.red-btn {
+/* .red-btn {
   background-color: #ff3300;
 }
 
@@ -156,6 +170,10 @@ label {
 
 .red-btn:active {
   background-color: #cc2900;
+} */
+
+.red-btn {
+  box-shadow: 5px 10px 15px 5px rgba(204, 41, 0, 0.5);
 }
 
 .input-box {

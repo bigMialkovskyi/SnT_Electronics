@@ -13,7 +13,7 @@
         </div>
         <button class="submit-button" type="submit">Вхід</button>
       </form>
-      <p v-if="showError" id="error">Username or Password is incorrect</p>
+      <p v-if="showError" id="error">{{errorMessage}}</p>
       <div class="have-account">
         <p>Ви ще не зареєстровані?</p>
         <router-link to="/register">
@@ -35,21 +35,19 @@ export default {
         login: "",
         password: "",
       },
+      errorMessage:"",
       showError: false,
     };
   },
   methods: {
     ...mapActions(["LogIn"]),
     async submit() {
-      const User = new FormData();
-      // User.append("login", this.form.login);
-      // User.append("password", this.form.password);
       try {
-        // await this.LogIn(User);
         await this.LogIn(this.form);
         this.$router.push("/user-page");
         this.showError = false;
       } catch (error) {
+        this.errorMessage = error.response.data.error
         this.showError = true;
       }
     },
