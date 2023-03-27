@@ -3,7 +3,7 @@
     <div class="container">
       <div class="copyright">
         <img class="logo-img" src="../assets/img/logo.png" alt="logo" />
-        <p>© COPYRIGHT 2022 (SnT Electronics)</p>
+        <p>© COPYRIGHT 2022 (SITRIX)</p>
       </div>
     </div>
   </footer>

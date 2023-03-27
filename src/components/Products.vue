@@ -19,7 +19,7 @@
       <div id="other" class="product-type-container other">
         <ProductList render_product_type="other" group_type_title="Інше" />
       </div>
-      <Hexagon />
+      <!-- <Hexagon /> -->
     </div>
   </section>
 </template>

@@ -2,30 +2,39 @@
 @import 'variables.scss';
 
 .our-products {
-  background-color: #191970;
+  // background-color: #191970;
+  background-color: #00bfff;
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
   padding: 0;
+  // box-shadow: 0 -10px 20px -5px rgba(64, 255, 0, 0.5);
 }
 
 .product-type-container {
-  margin-top: -7px;
+  // margin-top: -7px;
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
   padding: 0px 9.375%;
+  // box-shadow: 0 -10px 20px -5px rgba(64, 255, 0, 0.5);
+  box-shadow: 0px -34px 34px rgba(0, 0, 255, 0.1) inset;
+  border-top: 3px solid rgb(64, 255, 0, 0.5);
+  // box-shadow:
+  //      inset 0 -3em 3em rgba(0,0,0,0.1),
+  //            0 0  0 2px rgb(64, 255, 0),
+  //            0.3em 0.3em 1em rgba(0,0,0,0.3);
 }
 
-.for-farmers {
-  background-color: green;
-}
+// .for-farmers {
+//   background-color: green;
+// }
 
-.measuring-devices {
-  background-color: grey;
-}
+// .measuring-devices {
+//   background-color: grey;
+// }
 
-.other {
-  background-color: blue;
-}
+// .other {
+//   background-color: blue;
+// }
 
 .product-img-container {
   width: 500px;
@@ -60,7 +69,7 @@
 .product-desc {
   @include text-2;
   color: $White;
-  border-bottom: #0000CD 2px dashed;
+  border-bottom: rgb(64, 255, 0) 2px dashed;
   margin: 20px 0;
 }
 
@@ -89,7 +98,7 @@
   text-transform: uppercase;
   @include h1;
   color: $White;
-  padding: 40px 0;
+  padding: 20px 0;
   margin-left: auto;
   margin-right: auto;
   text-align: center;

@@ -269,6 +269,8 @@ export default {
   align-items: center;
   border-radius: 5px;
   background-color: rgb(0, 191, 255);
+  box-shadow: 0px 0px 24px rgba(0, 0, 255, 0.2);
+
 }
 
 .sensor-element {
@@ -276,13 +278,13 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  // padding: 0 3%;
   width: 95%;
-  border: 1px solid rgb(100, 149, 237);
-  margin: 5px 0;
+  margin: 1.5vh 0;
   height: 7vh;
   border-radius: 5px;
-  background-color: rgb(0, 180, 255);
+  // background-color: rgb(0, 191, 255);
+  box-shadow: 0px -14px 14px rgba(0, 0, 255, 0.1) inset;
+  border-top: 3px solid rgb(0, 255, 127, 0.5);
 }
 
 .sensor-element:hover {
@@ -304,29 +306,29 @@ export default {
 
 .options {
   display: flex;
-  height: 5vh;
+  height: 6vh;
   width: 68vw;
   margin: 20px 0;
   align-items: center;
   justify-content: space-around;
   border-radius: 5px;
   background-color: rgb(0, 191, 255);
+  box-shadow: 0px 0px 24px rgba(0, 0, 255, 0.2);
 }
 
 .option-element {
   display: flex;
   align-items: center;
   padding: 0 3%;
-  // height: 95%;
-  border: 1px solid rgb(100, 149, 237);
-  // margin: 5px 0;
   height: 4vh;
   border-radius: 5px;
-  background-color: rgb(0, 180, 255);
+  background-color: rgb(0, 191, 255);
+  box-shadow: 0px 0px 1vh rgba(0, 0, 255, 0.3);
+  border-top: 2px solid rgb(0, 255, 127, 0.5);
+  border-bottom: 2px solid rgb(0, 255, 127, 0.5);
 }
 
 .preview-bar {
-  background-color: #1e90ff;
   border-radius: 5px;
   display: flex;
   width: 100%;
@@ -336,8 +338,6 @@ export default {
 }
 
 .preview-element {
-  // margin-top: 1vh;
-  // margin-right: 1vh;
   display: flex;
   align-items: center;
 }

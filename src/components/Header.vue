@@ -4,7 +4,8 @@
       <router-link to="/">
         <div class="logo">
           <img class="logo-img" src="../assets/img/logo.png" alt="logo" />
-          <p class="logo-text">SnT<span> Electronics</span></p>
+          <!-- <p class="logo-text">SnT<span> Electronics</span></p> -->
+          <p class="logo-text"><span class="logo-print">SITRIX</span></p>
         </div>
       </router-link>
       <a
@@ -107,6 +108,11 @@ export default {
 @import "../styles/variables.scss";
 @import "../styles/header.scss";
 @import "../styles/menu-hamburger.scss";
+
+.logo-print{
+  margin-right: 0.5vh;
+  margin-left: -1.25vh;
+}
 
 .active {
   display: block;
