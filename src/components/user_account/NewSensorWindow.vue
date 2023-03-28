@@ -4,7 +4,7 @@
       <div @click="$emit('close')" class="close-btn"><span>X</span></div>
       <div class="input-box">
         <div class="input-element">
-          <label for="title">enter the ID  of the sensor</label>
+          <label for="title">enter the ID of the sensor</label>
           <input id="title" v-model="sensorID" type="text" />
         </div>
         <div class="input-element">
@@ -17,7 +17,7 @@
           class="nav-btn green-btn"
           @click="$emit('confirm', { userID, sensorID, sensorName }, true)"
         >
-          confirm   
+          confirm
         </button>
         <button class="nav-btn red-btn" @click="$emit('close')">cancel</button>
       </div>
@@ -57,11 +57,15 @@ export default {
 
 <style scoped>
 input {
+  color: rgb(30, 144, 255);
+  padding: 0 1vh;
   height: 40px;
   width: 300px;
   border-radius: 7px;
-  background-color: #ccebff;
-  border: 2px solid #0099ff;
+  background-color: rgb(135, 206, 250);
+  border-top: 2px solid rgb(0, 191, 255, 0.5);
+  border-bottom: 2px solid rgb(0, 191, 255, 0.5);
+  box-shadow: 0px -14px 14px rgba(0, 0, 255, 0.1) inset;
 }
 
 .input-element {
@@ -72,9 +76,10 @@ input {
 label {
   margin-right: auto;
   margin-left: 10px;
+  margin-bottom: 1vh;
   font-size: 14px;
-  font-weight: bold;
-  /* text-transform: uppercase; */
+  font-weight: normal;
+  color: aliceblue;
 }
 
 .modal-container {
@@ -96,7 +101,7 @@ label {
   z-index: 2000;
   width: 400px;
   height: 500px;
-  background-color: #b3e0ff;
+  background-color: rgb(135, 206, 250);
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
@@ -106,16 +111,17 @@ label {
   justify-content: center;
   align-items: center;
   position: absolute;
-  /* right: -20px;
-  top: -20px; */
   right: 0px;
   top: 0px;
   z-index: 3000;
   width: 40px;
   height: 40px;
-  background-color: #0099ff;
+  margin-top: -0.5px;
+  background-color: rgb(135, 206, 250);
   border-radius: 10%;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  /* border-top: 3.5px solid rgb(255, 0, 0, 0.5);
+  border-bottom: 3.5px solid rgb(255, 0, 0, 0.5); */
 }
 
 .close-btn:hover {
@@ -127,13 +133,12 @@ label {
 }
 
 .nav-btn {
-  background-color: #0099ff;
   width: 80px;
   height: 40px;
   border-radius: 10%;
   border: none;
-  /* box-shadow: 5px 10px 15px 5px rgba(102, 255, 51, 0.5); */
-  /* box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); */
+  background-color: rgb(135, 206, 250);
+  color: aliceblue;
 }
 
 .nav-btn:hover {
@@ -144,36 +149,16 @@ label {
   background-color: #007acc;
 }
 
-/* .green-btn {
-  background-color: #66ff33;
-}
-
-.green-btn:hover {
-  background-color: #8cff66;
-}
-
-.green-btn:active {
-  background-color: #40ff00;
-} */
-
 .green-btn {
-  box-shadow: 5px 10px 15px 5px rgba(64, 255, 0, 0.5);
+  box-shadow: 0px 0px 1vh rgba(0, 0, 255, 0.3);
+  border-top: 3px solid rgb(0, 255, 127, 0.5);
+  border-bottom: 3px solid rgb(0, 255, 127, 0.5);
 }
-
-/* .red-btn {
-  background-color: #ff3300;
-}
-
-.red-btn:hover {
-  background-color: #ff5c33;
-}
-
-.red-btn:active {
-  background-color: #cc2900;
-} */
 
 .red-btn {
-  box-shadow: 5px 10px 15px 5px rgba(204, 41, 0, 0.5);
+  box-shadow: 0px 0px 1vh rgba(0, 0, 255, 0.3);
+  border-top: 3px solid rgb(255, 0, 0, 0.5);
+  border-bottom: 3px solid rgb(255, 0, 0, 0.5);
 }
 
 .input-box {
