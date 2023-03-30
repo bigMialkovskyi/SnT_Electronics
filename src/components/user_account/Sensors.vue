@@ -232,9 +232,6 @@ export default {
         sensorID: sensorID,
         name: sensorName,
       };
-      // console.log(userID)
-      // console.log(sensorID)
-      // console.log(sensorName)
       console.log(await sensorApi.connectSensor(form));
     },
   },
