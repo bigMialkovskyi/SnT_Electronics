@@ -65,6 +65,23 @@ export default {
       showModal: false,
     };
   },
+
+  watch: {
+    showModal: function () {
+      if (this.showModal) {
+        document.documentElement.style.overflow = "hidden";
+        return;
+      }
+
+      document.documentElement.style.overflow = "auto";
+      //  <Modal
+      //  @wheel.prevent
+      //  @touchmove.prevent
+      //  @scroll.prevent
+      // />
+      // does not work
+    },
+  },
 };
 </script>
 

@@ -11,9 +11,17 @@
           <label for="password">Пароль:</label>
           <input type="password" name="password" v-model="form.password" />
         </div>
+        <div>
+          <label for="email">Електронна пошта:</label>
+          <input type="email" name="email" v-model="form.email" />
+        </div>
+        <div>
+          <label for="sensorID">sensorID:</label>
+          <input type="sensorID" name="sensorID" v-model="form.sensorID" />
+        </div>
         <button class="submit-button" type="submit">Підтвердити</button>
       </form>
-      <p v-if="showError" id="error">{{errorMessage}}</p>
+      <p v-if="showError" id="error">{{ errorMessage }}</p>
       <div class="have-account">
         <p>Ви вже зареєстровані?</p>
         <router-link to="/login">
@@ -34,8 +42,10 @@ export default {
       form: {
         login: "",
         password: "",
+        email: "",
+        sensorID: "",
       },
-      errorMessage:"",
+      errorMessage: "",
       showError: false,
     };
   },
@@ -48,7 +58,7 @@ export default {
         this.showError = false;
       } catch (error) {
         console.error(error);
-        this.errorMessage = error.response.data.error
+        this.errorMessage = error.response.data.error;
         this.showError = true;
       }
     },
@@ -65,7 +75,7 @@ export default {
   flex-direction: column;
   align-items: center;
   padding: 40px 0;
-  height: 100%;
+  height: 90vh;
   justify-content: center;
   text-align: center;
 }
@@ -93,7 +103,7 @@ export default {
     color: white;
     padding: 12px 20px;
     cursor: pointer;
-    border-radius: 30px;
+    border-radius: 7px;
     width: 100%;
   }
   button:hover {
@@ -110,7 +120,7 @@ button[type="submit"] {
   color: white;
   padding: 12px 20px;
   cursor: pointer;
-  border-radius: 30px;
+  border-radius: 7px;
 }
 button[type="submit"]:hover {
   background-color: #45a049;
@@ -119,7 +129,7 @@ input {
   margin: 5px;
   box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
   padding: 10px;
-  border-radius: 30px;
+  border-radius: 7px;
 }
 #error {
   color: red;

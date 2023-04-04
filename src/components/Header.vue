@@ -128,7 +128,7 @@ export default {
   width: 50px;
   height: 50px;
   background-color: #00bfff;
-  border-radius: 50px;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;

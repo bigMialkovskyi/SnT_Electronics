@@ -12,6 +12,7 @@
 // 	import: 'http://localhost:3093',
 // 	bff: 'http://localhost:3093',
 // 	cart: 'http://localhost:3093',
+// 	local: 'http://localhost:3093',
 // };
 
 export const API_PATHS = {
