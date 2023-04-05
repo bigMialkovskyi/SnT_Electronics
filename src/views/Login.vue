@@ -5,15 +5,46 @@
       <form class="form" @submit.prevent="submit">
         <div>
           <label for="username">Ім'я користувача:</label>
-          <input type="text" name="username" v-model="form.login" required/>
+          <input type="text" name="username" v-model="form.login" required />
         </div>
-        <div>
+        <div class="pass-box">
           <label for="password">Пароль:</label>
-          <input type="password" name="password" v-model="form.password" required/>
+          <input
+            v-if="!showPassword"
+            class="pass-input"
+            type="password"
+            name="password"
+            v-model="form.password"
+            required
+          />
+          <input
+            v-if="showPassword"
+            class="pass-input"
+            type="text"
+            name="password"
+            v-model="form.password"
+            required
+          />
+          <button class="pass-visible-btn">
+            <img
+              v-if="!showPassword"
+              @click="toggleShow($event)"
+              class="view-icon"
+              src="../assets/img/view-filled.svg"
+              alt="img"
+            />
+            <img
+              v-if="showPassword"
+              @click="toggleShow($event)"
+              class="view-icon"
+              src="../assets/img/view-off-filled.svg"
+              alt="img"
+            />
+          </button>
         </div>
         <button class="submit-button" type="submit">Вхід</button>
       </form>
-      <p v-if="showError" id="error">{{errorMessage}}</p>
+      <p v-if="showError" id="error">{{ errorMessage }}</p>
       <div class="have-account">
         <p>Ви ще не зареєстровані?</p>
         <router-link to="/register">
@@ -35,8 +66,9 @@ export default {
         login: "",
         password: "",
       },
-      errorMessage:"",
+      errorMessage: "",
       showError: false,
+      showPassword: false,
     };
   },
   methods: {
@@ -47,9 +79,13 @@ export default {
         this.$router.push("/user-page");
         this.showError = false;
       } catch (error) {
-        this.errorMessage = error.response.data.error
+        this.errorMessage = error.response.data.error;
         this.showError = true;
       }
+    },
+    toggleShow(e) {
+      e.preventDefault();
+      this.showPassword = !this.showPassword;
     },
   },
 };
@@ -114,10 +150,33 @@ button[type="submit"]:hover {
   background-color: #45a049;
 }
 input {
-  margin: 5px;
+  height: 5vh;
+  width: 20vh;
+  margin: 5px 0 5px 5px;
   box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
   padding: 10px;
   border-radius: 7px;
+}
+.pass-box {
+  display: flex;
+  align-items: center;
+}
+.pass-input {
+  width: 15vh;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.pass-visible-btn {
+  width: 5vh;
+  height: 5vh;
+  margin: 0;
+  border-left: 0;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+
+.view-icon {
+  height: 3vh;
 }
 #error {
   color: red;
