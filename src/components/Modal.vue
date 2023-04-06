@@ -3,15 +3,13 @@
     <div class="modal-content">
       <div class="msg-container">
         <div class="icon-container">
-          <img src="../assets/img/social-youtube.svg" alt="" />
+          <img class="modal-img" :src="imgSrc" alt="" />
         </div>
-        <h5 class="modal-title">Coming Soon</h5>
-        <h5 class="modal-text">thank you for being with us</h5>
+        <h5 class="modal-title">{{ title }}</h5>
+        <h5 class="modal-text">{{ text }}</h5>
       </div>
       <div class="nav-box">
-        <a href="#contacts" class="nav-btn red-btn" @click="$emit('close')"
-          >OK</a
-        >
+        <a class="nav-btn red-btn" @click="$emit('close')">OK</a>
       </div>
     </div>
   </div>
@@ -24,6 +22,11 @@ export default {
   name: "Modal",
   store,
   emits: ["close"],
+  props: {
+    title: String,
+    imgSrc: String,
+    text: String,
+  },
 };
 </script>
 
@@ -39,10 +42,11 @@ export default {
 }
 
 .modal-content {
+  padding: 2vh;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: space-between; */
   border-radius: 7px;
   position: absolute;
   left: 50%;
@@ -67,7 +71,6 @@ export default {
   width: 40px;
   height: 40px;
   border-radius: 50px;
-  /* background-color: #00bfff; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -106,8 +109,8 @@ export default {
 
 .red-btn {
   box-shadow: 0px 0px 1vh rgba(0, 0, 255, 0.3);
-  border-top: 3px solid rgb(255, 0, 0, 0.5);
-  border-bottom: 3px solid rgb(255, 0, 0, 0.5);
+  border-top: 3px solid rgb(0, 255, 127, 0.5);
+  border-bottom: 3px solid rgb(0, 255, 127, 0.5);
 }
 
 .nav-box {
@@ -116,5 +119,9 @@ export default {
   justify-content: space-evenly;
   padding: 2vh;
   margin-top: auto;
+}
+
+.modal-img {
+  height: 5vh;
 }
 </style>

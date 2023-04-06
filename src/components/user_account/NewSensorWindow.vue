@@ -120,8 +120,6 @@ label {
   background-color: rgb(135, 206, 250);
   border-radius: 10%;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
-  /* border-top: 3.5px solid rgb(255, 0, 0, 0.5);
-  border-bottom: 3.5px solid rgb(255, 0, 0, 0.5); */
 }
 
 .close-btn:hover {

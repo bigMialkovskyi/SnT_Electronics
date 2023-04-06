@@ -2,7 +2,6 @@
   <section id="contacts" class="contacts">
     <div class="container">
       <h1 class="contacts-title">Зв'яжіться з нами</h1>
-      <Modal v-if="showModal" @close="showModal = false" />
       <div class="contacts-info">
         <ul class="contacts-list">
           <p>Телефонуйте:</p>
@@ -36,23 +35,29 @@
             <a href="https://instagram.com/snt_electronics?igshid=OGQ2MjdiOTE="
               >Instagram</a
             >
-            <!-- <p>Instagram</p> -->
           </li>
           <li>
             <div class="icon-container">
               <img src="../assets/img/social-youtube.svg" alt="" />
             </div>
             <a @click="showModal = !showModal" href="#modal">YouTube</a>
-            <!-- <p>YouTube</p> -->
           </li>
         </ul>
       </div>
+      <Modal
+        v-if="showModal"
+        @close="showModal = false"
+        :title="modal.title"
+        :text="modal.text"
+        :imgSrc="modal.imgSrc"
+      />
     </div>
   </section>
 </template>
 
 <script>
 import Modal from "@/components/Modal.vue";
+import modalImg from "@/assets/img/social-youtube.svg";
 
 export default {
   components: { Modal },
@@ -63,6 +68,11 @@ export default {
   data() {
     return {
       showModal: false,
+      modal: {
+        title: "Зовсім скоро",
+        text: "Наразі, додаткову інформацію ви можете знайти на нашій сторінці Instagram. Дякуюємо що ви з нами.",
+        imgSrc: modalImg,
+      },
     };
   },
 
